@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 // import Swiper from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Container from '../../components/ui/Container';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -17,6 +18,7 @@ import { useState } from 'react';
 
 // import required modules
 import { Autoplay, FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
+
 
 const Slider = ({ slides }) => {
 
@@ -46,18 +48,22 @@ const Slider = ({ slides }) => {
                             <>
                                 <img className='h-full w-full relative brightness-50' src={slide.image} />
                                 <div className="swiper-slide">
-                                    <span className="swiper-no-swiping absolute -top-2/3 left-10">
-                                        <div className='left-5 md:left-1/4 text-white font-bold'>
-                                            <h2 className='text-3xl md:text-6xl w-2/3'>{slide.title}</h2>
-                                            <p className='mt-2 md:mt-5 p-3 md:text-lg backdrop-blur-sm'>{slide.short_description}</p>
-                                        </div>
-                                    </span>
+                                    <Container>
+                                        <span className="swiper-no-swiping absolute -top-2/3">
+                                            <div className='text-white font-bold'>
+                                                <h2 className='text-4xl md:text-7xl w-4/5 md:w-2/3'>{slide.title}</h2>
+                                                <p className='mt-2 md:mt-5 py-3 px-2 md:text-lg backdrop-blur-sm border w-4/5 md:w-1/2'>{slide.short_description}</p>
+                                            </div>
+                                        </span>
+                                    </Container>
                                 </div>
                             </>
                         </SwiperSlide>
                     </div>)
                 }
+
             </Swiper>
+
             <Swiper
                 onSwiper={setThumbsSwiper}
                 loop={true}
