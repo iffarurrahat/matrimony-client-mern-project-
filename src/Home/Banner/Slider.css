@@ -32,6 +32,6 @@
 }
 
 .swiper-slide-thumb-active {
-    border: 3px solid red;
+    border: 3px solid #f1ba05;
     border-radius: 12px;
 }

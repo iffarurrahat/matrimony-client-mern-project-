@@ -45,11 +45,11 @@ const Slider = ({ slides }) => {
                         <SwiperSlide>
                             <>
                                 <img className='h-full w-full relative brightness-50' src={slide.image} />
-                                <div className="swiper-slide  ">
-                                    <span className="swiper-no-swiping absolute -top-2/3 left-10 text-5xl">
-                                        <div className='left-5 md:left-1/4'>
-                                            <h2 className='text-3xl md:text-6xl font-bold text-white'>{slide.title}</h2>
-                                            <p className='backdrop-blur-sm mt-2 md:mt-5 p-3 text-base md:text-lg font-bold text-white'>{slide.long_description}</p>
+                                <div className="swiper-slide">
+                                    <span className="swiper-no-swiping absolute -top-2/3 left-10">
+                                        <div className='left-5 md:left-1/4 text-white font-bold'>
+                                            <h2 className='text-3xl md:text-6xl w-2/3'>{slide.title}</h2>
+                                            <p className='mt-2 md:mt-5 p-3 md:text-lg backdrop-blur-sm'>{slide.short_description}</p>
                                         </div>
                                     </span>
                                 </div>
@@ -70,7 +70,7 @@ const Slider = ({ slides }) => {
                 }}
                 modules={[FreeMode, Navigation, Pagination, Thumbs]}
                 // className="mySwiper w-40 md:w-60 bottom-12 md:bottom-20 "
-                className="mySwiper md:left-1/2 md:-top-3/4  w-40 md:w-full bottom-20 md:bottom-0 backdrop-blur-3xl md:backdrop-blur-0"
+                className="mySwiper md:left-1/2 md:-top-3/4  w-60 md:w-full bottom-20 md:bottom-0 backdrop-blur-3xl md:backdrop-blur-0"
             >
                 {
                     slides.map((slide) => <div key={slide.id}>

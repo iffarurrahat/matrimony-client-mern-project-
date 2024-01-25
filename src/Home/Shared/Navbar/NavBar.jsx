@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { RiMenu2Line, RiCloseLine } from 'react-icons/ri';
-import logoImag from "../../../assets/Logo/birds_logo_2.png"
+import logoImag from "../../../assets/Logo/birds_logo.png"
 
 const NavBar = () => {
 
