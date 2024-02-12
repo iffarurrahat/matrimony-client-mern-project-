@@ -92,9 +92,8 @@ const ProfileCardDetails = () => {
                                     :
                                     <div>
                                         {
-                                            females?.map(female => console.log(female))
+                                            females?.map(female => setFemales(female))
                                         }
-                                        female
                                     </div>
                             }
                         </div>

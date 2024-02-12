@@ -22,7 +22,6 @@ const ProfileDataRow = ({ profile }) => {
         // Request to be host
         try {
             const data = await becomePremiumMember(user?.email)
-            console.log(data);
             if (data.modifiedCount > 0) {
                 toast.success('Success!, Please with for admin confirmation.')
             }
@@ -31,7 +30,7 @@ const ProfileDataRow = ({ profile }) => {
             }
         }
         catch (err) {
-            console.log(err.message);
+            toast.error(err.message)
         }
         finally {
             setIsOpen(false)
@@ -40,7 +39,7 @@ const ProfileDataRow = ({ profile }) => {
 
     // Update candidate info
     const modalUpdateInfoHandler = async () => {
-        console.log('modalUpdateInfoHandler');
+        // update content
     }
 
     return (

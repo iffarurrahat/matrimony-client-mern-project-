@@ -12,12 +12,10 @@ const UserDataRow = ({ user, refetch }) => {
         // updated user role
         try {
             const data = await updateRole({ email: user?.email, role })
-            console.log(data);
             refetch()
             toast.success('User role Updated!')
         }
         catch (err) {
-            console.log(err.message);
             toast.error(err.message)
         }
         finally {

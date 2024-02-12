@@ -66,13 +66,11 @@ const EditBiodata = () => {
 
         try {
             const data = await addCandidate(candidateInfo);
-            console.log(data);
             setUploadButtonText('Uploaded!');
             toast.success('Your Profile Added!');
             navigate('/dashboard/view-biodata')
         }
         catch (err) {
-            console.log(err.message);
             toast.error(err.message)
         }
         finally {

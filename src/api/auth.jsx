@@ -3,7 +3,6 @@ import axiosSecure from "./axiosSecure";
 // Get token form server
 export const getToken = async email => {
     const { data } = await axiosSecure.post('/jwt', { email })
-    console.log('Token received form server---->', data);
     return data;
 }
 
