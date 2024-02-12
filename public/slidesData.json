@@ -1,47 +1,32 @@
 [
     {
-        "id": "1",
+        "id": "101",
         "title": "Find your Right Match here",
         "short_description": "Most trusted Matrimony Brand in the World.",
-        "long_description": "Experience the enchantment of an elegant winter wonderland wedding. With glistening snow, cozy fires, and warm embraces.",
-        "image": "https://i.ibb.co/QP0YNRc/banner-image.jpg",
-        "marriage_title": "Save The Date",
-        "date": "-19.12.19-"
+        "image": "https://i.ibb.co/6gD7D1f/banner-1.jpg"
     },
     {
-        "id": "2",
-        "title": "Rustic Barn Wedding",
+        "id": "102",
+        "title": "Find your Right Match here",
         "short_description": "Charming countryside wedding.",
-        "long_description": "Embrace the beauty of nature with a bohemian beachfront wedding. Feel the sand beneath your feet, listen to the soothing waves.",
-        "image": "https://i.ibb.co/DzrR6nL/banner-image.jpg",
-        "marriage_title": "Save The Date",
-        "date": "-26.2.20-"
+        "image": "https://i.ibb.co/9G07b6r/banner-3.jpg"
     },
     {
-        "id": "3",
-        "title": "Beachfront Wedding Extravaganza",
+        "id": "103",
+        "title": "Find your Right Match here",
         "short_description": "Dreamy seaside wedding by waves.",
-        "long_description": "Step into a bygone era with a vintage garden wedding. Surrounded by lush blooms and timeless elegance.",
-        "image": "https://i.ibb.co/QP0YNRc/banner-image.jpg",
-        "marriage_title": "Save The Date",
-        "date": "-27.10.21-"
+        "image": "https://i.ibb.co/wJKynZL/banner-image-3.jpg"
     },
     {
-        "id": "4",
-        "title": "Vintage Garden Wedding",
+        "id": "104",
+        "title": "Find your Right Match here",
         "short_description": "Enchanting garden affair.",
-        "long_description": "Escape to the tranquil beauty of the mountains for a rustic retreat wedding. Exchange vows amidst towering trees.",
-        "image": "https://i.ibb.co/QP0YNRc/banner-image.jpg",
-        "marriage_title": "Save The Date",
-        "date": "-02.11.22-"
+        "image": "https://i.ibb.co/SvLDfvT/banner-image-3.jpg"
     },
     {
-        "id": "4",
-        "title": "Vintage Garden Wedding",
+        "id": "105",
+        "title": "Find your Right Match here",
         "short_description": "Enchanting garden affair.",
-        "long_description": "Escape to the tranquil beauty of the mountains for a rustic retreat wedding. Exchange vows amidst towering trees.",
-        "image": "https://i.ibb.co/QP0YNRc/banner-image.jpg",
-        "marriage_title": "Save The Date",
-        "date": "-02.11.22-"
+        "image": "https://i.ibb.co/hmJyK6z/banner-image-5.jpg"
     }
 ]

@@ -1,0 +1,14 @@
+.triangle__wrap {
+    position: relative;
+}
+
+.triangle::before {
+    content: "";
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3.5rem solid white;
+    border-color: transparent;
+    border-top-color: #ECEAF6;
+}

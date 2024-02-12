@@ -1,0 +1,9 @@
+.mySwiper {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.swiper-slide-thumb-active {
+    border: 2px solid #f1ba05;
+    border-radius: 12px;
+}
