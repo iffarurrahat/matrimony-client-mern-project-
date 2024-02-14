@@ -1,18 +1,25 @@
 import { useState } from "react";
-import EditBiodataForm from "../../../components/Form/EditBiodataForm/EditBiodataForm";
-import useAuth from "../../../hooks/useAuth";
-import { imageUpload } from "../../../api/utils";
-import { addCandidate } from "../../../api/candidate";
+import EditBiodataForm from "../../Form/EditBiodataForm/EditBiodataForm";
+import HeaderTitle from "../../HeaderTitle/HeaderTitle";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import HeaderTitle from "../../../components/HeaderTitle/HeaderTitle";
+import { imageUpload } from "../../../api/utils";
+import useAuth from "../../../hooks/useAuth";
+import axiosSecure from "../../../api/axiosSecure";
 
-const EditBiodata = () => {
+const UpdateCandidateInfo = () => {
 
-    const navigate = useNavigate();
-    const [uploadButtonText, setUploadButtonText] = useState('Upload Image');
-    const [loading, setLoading] = useState(false);
+    const infoData = useLoaderData();
+
     const { user } = useAuth();
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
+    const [uploadButtonText, setUploadButtonText] = useState('Upload Image');
+    // Handle Image button text
+    const handleImageChange = image => {
+        setUploadButtonText(image.name)
+    }
 
     const handelSubmit = async event => {
         setLoading(true);
@@ -44,7 +51,10 @@ const EditBiodata = () => {
         }
         const image_url = await imageUpload(image);
 
-        const candidateInfo = {
+        console.log('image--->', image);
+        console.log('image_url--->', image_url);
+
+        const updateData = {
             name,
             image: image_url?.data?.display_url,
             fatherName,
@@ -66,9 +76,10 @@ const EditBiodata = () => {
         }
 
         try {
-            const data = await addCandidate(candidateInfo);
+            const data = await axiosSecure.put(`/candidate/${infoData._id}`, updateData);
+            console.log(data);
             setUploadButtonText('Uploaded!');
-            toast.success('Your Profile Added!');
+            toast.success('Your information updated!');
             navigate('/dashboard/view-biodata')
         }
         catch (err) {
@@ -77,25 +88,20 @@ const EditBiodata = () => {
         finally {
             setLoading(false);
         }
-
-    }
-
-
-    // Handle Image button text
-    const handleImageChange = image => {
-        setUploadButtonText(image.name)
     }
 
     return (
-        <>
-            <HeaderTitle title={'Add Your Profile'} subTitle={'For your partner'} />
+        <div>
+            <HeaderTitle title={'Something you want to change'} subTitle={'Update your info'} />
             <EditBiodataForm
-                handelSubmit={handelSubmit}
                 uploadButtonText={uploadButtonText}
                 handleImageChange={handleImageChange}
-                loading={loading} />
-        </>
+                infoData={infoData}
+                handelSubmit={handelSubmit}
+                loading={loading}
+            />
+        </div>
     );
 };
 
-export default EditBiodata;
+export default UpdateCandidateInfo;

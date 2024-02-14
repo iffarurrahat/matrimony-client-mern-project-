@@ -1,21 +1,19 @@
 /* eslint-disable react/prop-types */
-
 import { useState } from "react";
 import { becomePremiumMember } from "../../../../api/auth";
 import useAuth from "../../../../hooks/useAuth";
 import PremiumUserModal from "../../../Modal/PremiumUserModal";
 import { toast } from "react-toastify";
-import CandidateInfoUpdate from "../../../Modal/CandidateInfoUpdate";
+import { Link } from "react-router-dom";
+
 
 const ProfileDataRow = ({ profile }) => {
 
     const { user } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
-    const [isOpenUpdateInfo, setIsOpenUpdateInfo] = useState(false)
 
     const closeModal = () => {
         setIsOpen(false)
-        setIsOpenUpdateInfo(false)
     }
 
     const modalHandler = async () => {
@@ -37,11 +35,6 @@ const ProfileDataRow = ({ profile }) => {
         }
     }
 
-    // Update candidate info
-    const modalUpdateInfoHandler = async () => {
-        // update content
-    }
-
     return (
         <tr>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -56,8 +49,6 @@ const ProfileDataRow = ({ profile }) => {
                             <p className='text-gray-900 whitespace-no-wrap mt-1 text-xs text-center'>{profile?.host?.name}</p>
                         </div>
                     </div>
-                    {/* <div className='ml-3'>
-                    </div> */}
                 </div>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -76,14 +67,12 @@ const ProfileDataRow = ({ profile }) => {
                 </span>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
-                    <span
-                        aria-hidden='true'
-                        className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
-                    ></span>
-                    <span className='relative' onClick={() => setIsOpenUpdateInfo(true)}>Update</span>
-                </span>
-                <CandidateInfoUpdate closeModal={closeModal} isOpenUpdateInfo={isOpenUpdateInfo} modalUpdateInfoHandler={modalUpdateInfoHandler} />
+                <Link to={`/dashboard/update-candidate-info/${profile._id}`}>
+                    <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
+                        <span aria-hidden='true' className='absolute inset-0 bg-green-200 opacity-50 rounded-full'></span>
+                        <span className='relative'>Update</span>
+                    </span>
+                </Link>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                 <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-blue-900 leading-tight'>

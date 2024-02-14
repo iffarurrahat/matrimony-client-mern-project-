@@ -19,6 +19,7 @@ export const getCandidate = async (id) => {
     return data
 }
 
+
 // Save a candidate info in db
 export const addCandidate = async (candidateInfo) => {
     const { data } = await axiosPublic.post('/candidates', candidateInfo)

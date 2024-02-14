@@ -10,3 +10,4 @@ export const imageUpload = async image => {
     return data;
 
 }
+

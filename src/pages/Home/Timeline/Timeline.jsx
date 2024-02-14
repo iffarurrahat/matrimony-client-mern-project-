@@ -57,7 +57,7 @@ const events = [
 const Timeline = () => {
 
     return (
-        <div className="mb-20  md:mt-28 font-inter">
+        <div className="mt-28 font-inter">
             <HeaderTitle title={'MOMENTS'} subTitle={'How it works'} />
             <Container>
                 <div className="flex flex-col w-full md:w-4/5 mx-auto my-4">

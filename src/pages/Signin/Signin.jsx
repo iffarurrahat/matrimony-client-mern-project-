@@ -37,7 +37,7 @@ const Signin = () => {
             toast.success('Signin Successful');
         }
         catch (err) {
-            toast.err(err?.message);
+            toast.error(err?.message);
         }
     }
 

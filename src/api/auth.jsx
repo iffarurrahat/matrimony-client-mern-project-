@@ -60,3 +60,5 @@ export const becomePremiumMember = async (email) => {
     const { data } = await axiosSecure.put(`/users/${email}`, currentUser)
     return data;
 }
+
+

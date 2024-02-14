@@ -111,7 +111,7 @@ const NavBar = () => {
                             open ? <RiCloseLine /> : <RiMenu2Line />
                         }
                     </div>
-                    <ul className={`z-50 md:flex  absolute gap-6 md:static bg-secondary md:bg-transparent mr-4 md:mr-0 right-0 px-16 md:px-0 py-6 rounded-lg ${open ? 'top-16' : '-top-60'}`}>
+                    <ul className={`z-50 md:flex  absolute gap-6 md:static bg-secondary md:bg-transparent mr-4 md:mr-0 right-0 px-16 md:px-0 py-6 rounded-lg ${open ? 'top-12' : '-top-60'}`}>
                         <p className="md:flex items-center gap-12 font-satisfy font-medium tracking-widest text-center md:text-start">
                             {navLink}
                         </p>

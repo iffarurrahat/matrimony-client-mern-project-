@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import Select from 'react-select'
 
-const RaceSelect = () => {
+const RaceSelect = ({ info }) => {
 
     // Race
     const options = [
@@ -15,7 +16,8 @@ const RaceSelect = () => {
         <>
             <Select
                 options={options}
-                name="race" />
+                name="race"
+                defaultValue={{ label: info, value: info }} />
         </>
     );
 };

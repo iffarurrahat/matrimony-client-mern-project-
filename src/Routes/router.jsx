@@ -18,6 +18,7 @@ import MyContactRequest from "../pages/Dashboard/User/MyContactRequest";
 import FavouritesBiodata from "../pages/Dashboard/User/FavouritesBiodata";
 import ProfileCardDetails from "../components/ProfileCard/ProfileCardDetails";
 import { getCandidate } from "../api/candidate";
+import UpdateCandidateInfo from "../components/Dashboard/UpdateCandidateInfo/UpdateCandidateInfo";
 
 
 const router = createBrowserRouter([
@@ -65,6 +66,7 @@ const router = createBrowserRouter([
                         <ManageUsers />
                     </PrivateRoute>
                 )
+
             },
             {
                 path: 'approved-premium',
@@ -88,19 +90,16 @@ const router = createBrowserRouter([
             },
             {
                 path: 'edit-biodata',
-                element: (
-                    <PrivateRoute>
-                        <EditBiodata />
-                    </PrivateRoute>
-                )
+                element: <PrivateRoute><EditBiodata /></PrivateRoute>
             },
             {
                 path: 'view-biodata',
-                element: (
-                    <PrivateRoute>
-                        <ViewBiodata />
-                    </PrivateRoute>
-                )
+                element: <PrivateRoute><ViewBiodata /></PrivateRoute>,
+            },
+            {
+                path: 'update-candidate-info/:id',
+                element: <PrivateRoute> <UpdateCandidateInfo /></PrivateRoute>,
+                loader: ({ params }) => getCandidate(params.id)
             },
             {
                 path: 'my-contact-request',

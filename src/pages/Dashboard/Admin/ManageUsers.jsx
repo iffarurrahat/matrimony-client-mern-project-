@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllUsers } from "../../../api/auth";
 import { Helmet } from "react-helmet-async";
 import UserDataRow from "../../../components/Dashboard/Sidebar/TableRows/UserDataRow";
-
+import { getAllUsers } from "../../../api/auth";
 
 
 const ManageUsers = () => {

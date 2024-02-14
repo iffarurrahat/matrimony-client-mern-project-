@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import Select from 'react-select'
 
-const GenderSelect = () => {
+const GenderSelect = ({ info }) => {
 
     const options = [
         { value: 'male', label: 'Male' },
@@ -11,7 +12,8 @@ const GenderSelect = () => {
         <>
             <Select
                 options={options}
-                name="gender" />
+                name="gender"
+                defaultValue={{ label: info, value: info }} />
         </>
     );
 };
