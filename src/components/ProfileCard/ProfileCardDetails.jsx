@@ -7,13 +7,14 @@ import { useEffect, useState } from "react";
 import { getAllCandidates } from "../../api/candidate";
 import Spinner from "../Spinner/Spinner";
 import Card from "../../pages/Home/MatrimonyProfile/Card";
+import Button from "../Button/Button";
 
 const ProfileCardDetails = () => {
 
     const [loading, setLoading] = useState(false);
 
     const candidate = useLoaderData();
-    const { birthDate, candidateAge, candidateHeight, candidateWeight, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, gender, image, fatherName, motherName, name, occupation, phone, presentAddress, permanentAddress, race, host } = candidate || {}
+    const { birthDate, candidateAge, candidateHeight, candidateWeight, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, gender, image, fatherName, motherName, name, occupation, phone, presentAddress, permanentAddress, race, host, _id } = candidate || {}
     const [role] = useRole();
 
     const [males, setMales] = useState([])
@@ -27,7 +28,7 @@ const ProfileCardDetails = () => {
                     const maleFiltered = data.filter(item => item.gender === 'male')
                     setMales(maleFiltered)
                 }
-                else {
+                if (data) {
                     const femaleFiltered = data.filter(item => item.gender === 'female')
                     setFemales(femaleFiltered);
                 }
@@ -75,26 +76,40 @@ const ProfileCardDetails = () => {
                                 </div>
                             </div>
                             <div className="capitalize space-y-1 mt-5">
-                                <p>Father' name: {fatherName} kg</p>
-                                <p>Mother' name: {motherName} kg</p>
+                                <p>Father's name: {fatherName} kg</p>
+                                <p>Mother's name: {motherName} kg</p>
                                 <p>Current: {presentAddress}</p>
                                 <p>Permanent: {permanentAddress}</p>
+                            </div>
+                            <div className="flex gap-6 mt-5">
+                                <Button label={'Favorites Biodata Collection'} />
+                                {
+                                    role === "user" ?
+                                        <Button
+                                            label={'Request Contact Information'} />
+                                        :
+                                        ""
+                                }
                             </div>
                         </div>
                         <div className="md:w-3/5 py-10 overflow-y-scroll">
                             {
-                                gender === 'male' ?
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                        {
-                                            males?.map((profile, idx) => <Card key={idx} profile={profile} />)
-                                        }
-                                    </div>
-                                    :
-                                    <div>
-                                        {
-                                            females?.map(female => setFemales(female))
-                                        }
-                                    </div>
+                                gender === 'male' &&
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    {
+                                        males?.map((profile, idx) => <Card key={idx} profile={profile} />)
+                                    }
+                                </div>
+                            }
+
+
+                            {
+                                gender === 'female' &&
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    {
+                                        females?.map((profile, idx) => <Card key={idx} profile={profile} />)
+                                    }
+                                </div>
                             }
                         </div>
                     </div>
@@ -105,3 +120,10 @@ const ProfileCardDetails = () => {
 };
 
 export default ProfileCardDetails;
+
+
+/*
+
+
+
+*/

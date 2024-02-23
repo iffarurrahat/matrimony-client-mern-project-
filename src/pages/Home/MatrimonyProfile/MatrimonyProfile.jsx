@@ -5,7 +5,7 @@ import HeaderTitle from "../../../components/HeaderTitle/HeaderTitle";
 import { getAllCandidates } from "../../../api/candidate";
 
 const MatrimonyProfile = () => {
-
+    
     const [profiles, setProfiles] = useState([])
     useEffect(() => {
         getAllCandidates()
@@ -21,6 +21,7 @@ const MatrimonyProfile = () => {
                     title={'CANDIDATE'}
                     subTitle={'Chose Right Person'} />
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
                     {
                         profiles.slice(0, 6).map(profile => <Card
                             key={profile._id}

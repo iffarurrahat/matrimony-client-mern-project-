@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Card from "../Home/MatrimonyProfile/Card";
 import CoverSection from "../../components/CoverSection/CoverSection";
 import { getAllCandidates } from "../../api/candidate";
+import DivisionSelect from "./DivisionSelect";
 
 const Biodata = () => {
 
@@ -14,6 +15,33 @@ const Biodata = () => {
                 setProfiles(data)
             })
     }, [])
+
+    const handleFilterGender = genderText => {
+        const text = genderText.target.value
+        getAllCandidates()
+            .then(data => {
+                const filter = data.filter(item => item.gender === text)
+                setProfiles(filter)
+            })
+    }
+
+    const [valueDivision, setValueDivision] = useState(null)
+    const text = valueDivision?.value;
+    // console.log(text);
+    useEffect(() => {
+        getAllCandidates()
+            .then(data => {
+                if (!text) {
+                    setProfiles(data)
+                }
+                else {
+                    const filterDivision = data.filter(item => item?.permanentAddress.toLocaleLowerCase().includes(text))
+                    setProfiles(filterDivision)
+                }
+                // console.log(filterDivision);
+            })
+    }, [text])
+
 
     return (
         <>
@@ -33,21 +61,29 @@ const Biodata = () => {
                             <div>
                                 <p className="text-lg mb-1">Biodata Type</p>
                                 <p>
-                                    <input type="checkbox" id="Man" name="man" value="Man" />
-                                    <label htmlFor="Man" className="ml-2">Man</label>
+                                    <input onClick={handleFilterGender} type="radio" name="gender" value="male" />
+                                    <label htmlFor="male" className="ml-2">Male</label>
                                 </p>
                                 <p>
-                                    <input type="checkbox" id="Woman" name="woman" value="Woman" />
-                                    <label htmlFor="Woman" className="ml-2">Woman</label>
+                                    <input onClick={handleFilterGender} type="radio" name="gender" value="female" />
+                                    <label htmlFor="female" className="ml-2">Female</label>
                                 </p>
+                            </div>
+                            <div className="mt-3">
+                                <p className="text-lg mb-1">Biodata By Division</p>
+                                <DivisionSelect
+                                    // onClick={handleFilterDivision}
+                                    setValueDivision={setValueDivision}
+                                    valueDivision={valueDivision}
+                                />
                             </div>
                         </div>
                     </div>
                     <div className="md:w-5/6">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                             {
-                                profiles?.slice(0, 6).map(profile => <Card
-                                    key={profile._id}
+                                profiles.map((profile, idx) => <Card
+                                    key={idx}
                                     profile={profile}
                                 />)
                             }

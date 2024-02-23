@@ -19,6 +19,7 @@ import FavouritesBiodata from "../pages/Dashboard/User/FavouritesBiodata";
 import ProfileCardDetails from "../components/ProfileCard/ProfileCardDetails";
 import { getCandidate } from "../api/candidate";
 import UpdateCandidateInfo from "../components/Dashboard/UpdateCandidateInfo/UpdateCandidateInfo";
+import AdminRoute from "./AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -63,7 +64,9 @@ const router = createBrowserRouter([
                 path: 'manage-users',
                 element: (
                     <PrivateRoute>
-                        <ManageUsers />
+                        <AdminRoute>
+                            <ManageUsers />
+                        </AdminRoute>
                     </PrivateRoute>
                 )
 

@@ -1,18 +1,25 @@
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../../hooks/useAuth";
-import { useEffect, useState } from "react";
 import { getProfileCandidates } from "../../../api/candidate";
 import ProfileDataRow from "../../../components/Dashboard/Sidebar/TableRows/ProfileDataRow";
 import TableCover from "../../../components/Cover/TableCover";
+import { useQuery } from "@tanstack/react-query";
 
 const ViewBiodata = () => {
 
     const { user } = useAuth();
-    const [profiles, setProfiles] = useState([]);
-    useEffect(() => {
-        getProfileCandidates(user?.email)
-            .then(data => setProfiles(data))
-    }, [user])
+    // const [profiles, setProfiles] = useState([]);
+    // useEffect(() => {
+    //     getProfileCandidates(user?.email)
+    //         .then(data => setProfiles(data))
+    // }, [user])
+
+    const { data: profiles = [], refetch } = useQuery({
+        queryKey: ['profiles'],
+        queryFn: async () => await getProfileCandidates(user?.email),
+    })
+
+
 
     return (
         <>
@@ -60,7 +67,8 @@ const ViewBiodata = () => {
 
                                                 profiles?.map(profile => <ProfileDataRow
                                                     key={profile._id}
-                                                    profile={profile} />)
+                                                    profile={profile}
+                                                    refetch={refetch} />)
                                             }
                                         </tbody>
                                     </table>

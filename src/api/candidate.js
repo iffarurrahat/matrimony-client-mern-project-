@@ -13,6 +13,7 @@ export const getAllCandidates = async () => {
     return data
 }
 
+
 // Fetch single Candidate data from db
 export const getCandidate = async (id) => {
     const { data } = await axiosSecure(`/candidate/${id}`)
