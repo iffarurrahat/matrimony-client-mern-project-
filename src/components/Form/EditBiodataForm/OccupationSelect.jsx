@@ -3,8 +3,6 @@ import Select from 'react-select'
 
 const OccupationSelect = ({ info }) => {
 
-    console.log(info);
-
     // Occupation
     const options = [
         { value: 'student', label: 'Student' },

@@ -27,7 +27,6 @@ const Biodata = () => {
 
     const [valueDivision, setValueDivision] = useState(null)
     const text = valueDivision?.value;
-    // console.log(text);
     useEffect(() => {
         getAllCandidates()
             .then(data => {
@@ -38,7 +37,6 @@ const Biodata = () => {
                     const filterDivision = data.filter(item => item?.permanentAddress.toLocaleLowerCase().includes(text))
                     setProfiles(filterDivision)
                 }
-                // console.log(filterDivision);
             })
     }, [text])
 

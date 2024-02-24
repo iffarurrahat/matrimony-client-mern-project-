@@ -49,7 +49,6 @@ const ProfileDataRow = ({ profile, refetch }) => {
             if (result.isConfirmed) {
 
                 const res = await axiosSecure.delete(`/candidates/${profile._id}`);
-                // console.log(res.data);
                 if (res.data.deletedCount > 0) {
                     // refetch to updated the ui
                     refetch();

@@ -51,9 +51,6 @@ const UpdateCandidateInfo = () => {
         }
         const image_url = await imageUpload(image);
 
-        console.log('image--->', image);
-        console.log('image_url--->', image_url);
-
         const updateData = {
             name,
             image: image_url?.data?.display_url,
@@ -77,7 +74,6 @@ const UpdateCandidateInfo = () => {
 
         try {
             const data = await axiosSecure.put(`/candidate/${infoData._id}`, updateData);
-            console.log(data);
             setUploadButtonText('Uploaded!');
             toast.success('Your information updated!');
             navigate('/dashboard/view-biodata')

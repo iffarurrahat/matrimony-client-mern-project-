@@ -5,7 +5,6 @@ import Spinner from "../components/Spinner/Spinner";
 
 const AdminRoute = ({ children }) => {
     const [role, loading] = useRole();
-    // console.log(role);
 
     if (loading) return <Spinner />
     if (role === 'admin') return children;
