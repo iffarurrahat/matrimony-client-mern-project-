@@ -44,12 +44,18 @@ const UpdateCandidateInfo = () => {
         const expectedPartnerWeight = form.expectedWeight.value;
         const expectedPartnerAge = form.expectedAge.value;
 
+        if (!image) {
+            toast.error('image not found, please upload your image!!')
+            return;
+        }
         const host = {
             name: user?.displayName,
             image: user?.photoURL,
             email: user?.email,
         }
+
         const image_url = await imageUpload(image);
+
 
         const updateData = {
             name,
